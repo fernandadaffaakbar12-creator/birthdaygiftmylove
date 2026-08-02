@@ -175,7 +175,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "1705";
+        const SECRET_PIN = "2805";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -563,6 +563,7 @@ function ketikTeks(elemen, teks) {
     return new Promise(resolve => {
         let index = 0;
         elemen.innerHTML = '';
+        elemen.classList.add('typing-active');
 
         function ketik() {
             if (index < teks.length) {
@@ -570,6 +571,7 @@ function ketikTeks(elemen, teks) {
                 index++;
                 setTimeout(ketik, 35);
             } else {
+                elemen.classList.remove('typing-active');
                 elemen.classList.add('typing-done');
                 resolve();
             }
@@ -1096,7 +1098,7 @@ function tampilkanTahap2() {
     if (msg) {
         msg.className = 'candle-message'; // fade out dulu
         setTimeout(() => {
-            msg.textContent = 'Make a wish, Berdoa dulu yaa 🙏 ';
+            msg.textContent = 'Make a wish, Berdoa dulu yaa.. ';
             msg.className = 'candle-message show-msg';
         }, 400);
     }

@@ -13,15 +13,15 @@
 
 <body>
     <audio id="bg-music" loop>
-        <source src="audio/Olivia Rodrigo - drop dead.mp3" type="audio/mpeg">
+        <source src="audio/Ariana Grande.mp3" type="audio/mpeg">
     </audio>
 
     <div id="music-popup" class="music-popup">
         <p class="now-playing-top">Now Playing</p>
         <img src="img/so.jpeg" alt="Album Cover" class="album-cover">
         <div class="music-info">
-            <p class="song-title">Drop Dead</p>
-            <p class="artist-name">Olivia Rodrigo</p>
+            <p class="song-title">hate that i made you love me</p>
+            <p class="artist-name">Ariana Grande</p>
         </div>
         <button id="play-pause-btn" class="play-pause-btn" onclick="toggleMusic()">
             <!-- SVG Pause Icon -->
@@ -55,8 +55,8 @@
     <div id="pin-screen" style="display: none;">
         <div class="pin-container glass-panel">
             <h2>Enter PIN</h2>
-            <p style="margin-bottom: 2px;">passwordnya tanggal + bulan jadian kita yaa</p>
-            <p style="margin-top: 0;">(Awas aja kalau lupa!!)</p>
+            <p style="margin-bottom: 2px;">Passwordnya tanggal lahir kamu yaa sayang.. </p>
+            <p style="margin-top: 0;">(2805)</p>
             <input type="password" id="pin-input" maxlength="4" placeholder="****">
         </div>
     </div>
@@ -84,7 +84,7 @@
             <h1 class="aesthetic-font fade-in-text">Happy Birthday,<br>My Everything</h1>
             <p class="aesthetic-font fade-in-text"
                 style="font-size: 1.3rem; color: #ffffff; margin-top: -5px; margin-bottom: 10px; letter-spacing: 2px;">-
-                Asril Agustin -</p>
+                Solehati Azzahro -</p>
             <img src="img/foto-pacar.png" alt="Foto Pacar" class="birthday-photo fade-in-text">
             <p class="typing-text">Hari ini adalah hari yang paling spesial karena di hari ini, semesta membawa kamu ke
                 dunia.</p>
@@ -122,31 +122,31 @@
             <div class="solar-system">
                 <div class="orbit-track">
 
-                    <div class="planet-card item1" data-caption="Seblak Prasmanan">
+                    <div class="planet-card item1" data-caption="Bakso">
                         <img src="img/favorite-food.jpg" alt="Food">
                         <p class="planet-caption">Your favorite food</p>
                     </div>
 
-                    <div class="planet-card item2" data-caption="Kopi Gula Aren">
+                    <div class="planet-card item2" data-caption="Stawberry Milk">
                         <img src="img/favorite-drink.jpg" alt="Drink">
                         <p class="planet-caption">Your favorite drink</p>
                     </div>
 
                     <div class="planet-card item3"
-                        data-embed="https://open.spotify.com/embed/track/2AtJq58CHh4qBUqTpU75vU?utm_source=generator&si=14cd9ae193c044e2"
-                        data-caption="MMG (My Mine Gueh) - Naykilla">
+                        data-embed="https://open.spotify.com/embed/track/1NZs6n6hl8UuMaX0UC0YTz?utm_source=generator&si=4938350db4a04f21"
+                        data-caption="Brooklyn Baby - Lana Del Rey">
                         <img src="img/favorite-song.jpg" alt="Song">
                         <p class="planet-caption">Your favorite song</p>
                     </div>
 
                     <div class="planet-card item4"
-                        data-embed="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1078492351269237%2F&amp;show_text=false&amp;width=267&amp;t=0"
-                        data-caption="Drama China">
-                        <img src="img/favorite-video.png" alt="facebook">
-                        <p class="planet-caption">Your favorite facebook channel</p>
+                        data-embed="https://www.youtube.com/embed/PH5PtSswnlw?si=w1Y0V4vbgnxb6KXt"
+                        data-caption="Windah Basudara">
+                        <img src="img/favorite-yt.jpg" alt="YouTube">
+                        <p class="planet-caption">Your favorite youtube channel</p>
                     </div>
 
-                    <div class="planet-card item5" data-caption="Fikri Fauzi Islami">
+                    <div class="planet-card item5" data-caption="Ndol Aj">
                         <img src="img/favorite-person.jpeg" alt="Person">
                         <p class="planet-caption">Your favorite person</p>
                     </div>
@@ -156,11 +156,12 @@
         </section>
 
         <section class="slide photo-panel show-on-scroll">
-            <h2 class="aesthetic-font" style="line-height: 0.8; margin-bottom: 35px; color: #ffb6c1;">
-                <span style="font-size: 2em; display: block;">Core Memories</span>
+            <h2 class="aesthetic-font"
+                style="line-height: 0.8; margin-bottom: 35px; color: #ffb6c1; text-align: center;">
+                <span style="font-size: 3em; display: block;">Your</span>
                 <span
-                    style="font-size: 1.2em; display: block; opacity: 0.9; transform: translateX(40px); color: #ffffff;">of
-                    Us</span>
+                    style="font-size: 1.2em; display: block; opacity: 0.9; transform: translateX(40px); color: #ffffff;">Pretty
+                    Face</span>
             </h2>
             <div class="gallery-scroll">
                 <div class="scratch-card">
@@ -181,6 +182,10 @@
                 </div>
                 <div class="scratch-card">
                     <img src="img/core-memories5.jpeg" alt="Kenangan 5">
+                    <canvas class="scratch-canvas"></canvas>
+                </div>
+                <div class="scratch-card">
+                    <img src="img/core-memories6.jpeg" alt="Kenangan 6">
                     <canvas class="scratch-canvas"></canvas>
                 </div>
             </div>
@@ -230,9 +235,7 @@
             <hr style="border: 0; border-top: 1px solid rgba(255,182,193,0.3); margin-bottom: 20px;">
             <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">Dari orang yang paling bersyukur memilikimu,
             </p>
-            <p class="sender-name aesthetic-font baby-pink-text" style="font-size: 2rem; margin-top: 5px;">Fikri Fauzi
-                Islami
-            </p>
+            <p class="sender-name aesthetic-font baby-pink-text" style="font-size: 2rem; margin-top: 5px;">Ndol Aj </p>
 
             <!-- Tombol Tiup Lilin -->
             <button id="btn-tiup-lilin" class="btn-tiup-lilin" onclick="bukaHalamanLilin()">🎂 Tiup Lilin</button>
@@ -258,13 +261,13 @@
                                 <span class="candle-digit">2</span>
                             </div>
                         </div>
-                        <!-- Angka 4 -->
+                        <!-- Angka 0 -->
                         <div class="candle-stick number-candle">
                             <div class="candle-flame flame-2">
                                 <div class="flame-inner"></div>
                             </div>
                             <div class="candle-number-body">
-                                <span class="candle-digit">4</span>
+                                <span class="candle-digit">0</span>
                             </div>
                         </div>
                     </div>

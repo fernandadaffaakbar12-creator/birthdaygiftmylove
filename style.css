@@ -1136,6 +1136,13 @@ body {
         color: #ffb6c1;
         /* Kursor berwarna baby pink */
         animation: blink-cursor 0.7s infinite;
+        display: none;
+        /* Sembunyikan kursor secara default */
+    }
+
+    .typing-active::after {
+        display: inline;
+        /* Tampilkan kursor hanya saat sedang diketik */
     }
 
     .typing-done::after {
