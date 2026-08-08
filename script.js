@@ -175,7 +175,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "2708";
+        const SECRET_PIN = "0807";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -733,7 +733,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update hint
             if (galleryHint) {
-                galleryHint.textContent = '✨ Foto ' + clearedSet.size + ' dari ' + totalCanvases + ' terbuka ✨';
+                if (totalCanvases > 1) {
+                    galleryHint.textContent = '✨ Kenangan ' + clearedSet.size + ' dari ' + totalCanvases + ' terbuka ✨';
+                } else {
+                    galleryHint.textContent = '✨ Terbuka! ✨';
+                }
             }
 
             // Cek apakah semua sudah dibersihkan
@@ -748,7 +752,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     galleryScroll.addEventListener('scroll', updateSlider);
                 }
                 if (galleryHint) {
-                    galleryHint.textContent = 'Semua foto sudah terbuka! Geser kesamping untuk melihatnya';
+                    if (totalCanvases > 1) {
+                        galleryHint.textContent = 'Semua kenangan sudah terbuka! Geser kesamping untuk melihatnya';
+                    } else {
+                        galleryHint.textContent = 'Semoga suatu saat kita bisa fotbar yaa 🤍';
+                    }
                     galleryHint.classList.add('hint-unlocked');
                 }
             } else {

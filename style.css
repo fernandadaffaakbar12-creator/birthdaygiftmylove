@@ -545,23 +545,15 @@ body {
 
 /* Jarak Orbit DIPERBESAR (TranslateZ) agar kartu tidak berdempetan */
 .item1 {
-    transform: rotateY(0deg) translateZ(340px);
+    transform: rotateY(0deg) translateZ(250px);
 }
 
 .item2 {
-    transform: rotateY(72deg) translateZ(340px);
+    transform: rotateY(120deg) translateZ(250px);
 }
 
 .item3 {
-    transform: rotateY(144deg) translateZ(340px);
-}
-
-.item4 {
-    transform: rotateY(216deg) translateZ(340px);
-}
-
-.item5 {
-    transform: rotateY(288deg) translateZ(340px);
+    transform: rotateY(240deg) translateZ(250px);
 }
 
 /* =========================================
