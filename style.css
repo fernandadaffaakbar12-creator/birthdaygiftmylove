@@ -549,15 +549,19 @@ body {
 }
 
 .item2 {
-    transform: rotateY(90deg) translateZ(250px);
+    transform: rotateY(72deg) translateZ(250px);
 }
 
 .item3 {
-    transform: rotateY(180deg) translateZ(250px);
+    transform: rotateY(144deg) translateZ(250px);
 }
 
 .item4 {
-    transform: rotateY(270deg) translateZ(250px);
+    transform: rotateY(216deg) translateZ(250px);
+}
+
+.item5 {
+    transform: rotateY(288deg) translateZ(250px);
 }
 
 /* =========================================
@@ -1064,15 +1068,19 @@ body {
     }
 
     .item2 {
-        transform: rotateY(90deg) translateZ(200px);
+        transform: rotateY(72deg) translateZ(200px);
     }
 
     .item3 {
-        transform: rotateY(180deg) translateZ(200px);
+        transform: rotateY(144deg) translateZ(200px);
     }
 
     .item4 {
-        transform: rotateY(270deg) translateZ(200px);
+        transform: rotateY(216deg) translateZ(200px);
+    }
+
+    .item5 {
+        transform: rotateY(288deg) translateZ(200px);
     }
 
     #main-content {
