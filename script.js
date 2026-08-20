@@ -1174,7 +1174,7 @@ function tampilkanTahap3() {
             if (envelopeWrapper && envelopeMain && envelopePaper) {
                 envelopePaper.innerHTML = '<p style="font-size:1.5em;font-weight:bold;margin-bottom:15px;text-align:center;">HAPPY BIRTHDAY</p>' +
                     '<p style="margin-bottom:15px;text-align:center;line-height:1.5;">hari ini kamu ulang tahun ya selamat bertambah usia sehat selalu, panjang umur makin sabar lagi ya hehe doa terbaik untukmu semoga di umur sekarang semesta berpihak ya sama kamu semoga bisa dapetin hal yang selama ini di perjuangin, semoga bahagia dan semoga itu selamanya my best wishes for you.</p>' +
-                    '<p style="text-align:center;line-height:1.5;">aku mau ngomong ini sebenarnya dari lama tapi aku baru berani bilang nya hari ini pas dihari ulang tahunmu aku mau bilang SEBENTAR AKU SUKA SAMA KAMU, kamuu mau gk jadi pacarku?🤍🥰</p>';
+                    '<p style="text-align:center;line-height:1.5;">aku mau ngomong ini sebenarnya dari lama tapi aku baru berani bilang nya hari ini pas dihari ulang tahunmu aku mau bilang SEBENARNYA AKU SUKA SAMA KAMU, kamuu mau gk jadi pacarku?🤍🥰</p>';
 
                 envelopeWrapper.classList.remove('hidden');
                 // Trigger reflow
