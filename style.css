@@ -2218,5 +2218,114 @@ body {
 
 .cake-container:not(.holding) {
     transform: scale(1);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+}
+
+/* =========================================
+   ENVELOPE ANIMATION
+========================================= */
+.envelope-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.envelope-wrapper.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.envelope-wrapper.hidden {
+    display: none;
+}
+
+.envelope {
+    position: relative;
+    width: 280px;
+    height: 160px;
+    background: #ff7eb3;
+    border-radius: 5px 5px 10px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: background 1s ease, box-shadow 1s ease;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 90px solid #ff8bb8;
+    transform-origin: top;
+    transition: transform 1s ease-in-out, opacity 1s ease, z-index 0s linear 1s;
+    z-index: 4;
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid #ffaec9;
+    border-right: 140px solid #ffaec9;
+    border-bottom: 90px solid #ffb6c1;
+    z-index: 3;
+    border-radius: 0 0 10px 10px;
+    transition: opacity 1s ease;
+}
+
+.envelope-paper {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 260px;
+    height: 140px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 2;
+    transition: transform 1.5s ease-in-out 1s, height 1.5s ease-in-out 1s;
+    color: #333;
+    overflow-y: auto;
+    font-size: 0.85rem;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.open .envelope-paper {
+    transform: translateY(-80px);
+    height: 320px;
+}
+
+.envelope.hide-body {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.envelope.hide-body .envelope-flap,
+.envelope.hide-body .envelope-front {
+    opacity: 0 !important;
+}
+
+.envelope.center-paper .envelope-paper {
+    transform: translateY(90px);
+    transition: transform 1.5s ease-in-out;
 }

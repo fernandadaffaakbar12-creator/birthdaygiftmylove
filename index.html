@@ -55,8 +55,6 @@
     <div id="pin-screen" style="display: none;">
         <div class="pin-container glass-panel">
             <h2>Enter PIN</h2>
-            <p style="margin-bottom: 2px;">Passwordnya tanggal + bulan jadian kita yaa.. </p>
-            <p style="margin-top: 0;">(Awas aja kalau lupa)</p>
             <input type="password" id="pin-input" maxlength="4" placeholder="****">
         </div>
     </div>
@@ -206,6 +204,15 @@
 
             <div class="candle-page-content">
                 <p id="candle-message" class="candle-message"></p>
+
+                <!-- Animated Envelope -->
+                <div id="envelope-wrapper" class="envelope-wrapper hidden">
+                    <div class="envelope" id="envelope-main">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-paper" id="envelope-paper"></div>
+                        <div class="envelope-front"></div>
+                    </div>
+                </div>
 
                 <div class="cake-container">
                     <!-- Lilin Angka 24 -->

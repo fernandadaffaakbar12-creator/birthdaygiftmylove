@@ -287,7 +287,7 @@
                         if (pinInput.value === SECRET_PIN) {
                             // PIN BENAR
                             showPinPopup({
-                                message: 'Valid!\nLanjut ya sayang~',
+                                message: 'Valid!\nLanjut ya cantik~',
                                 buttonText: 'Lanjut 💕'
                             }, true);
 
@@ -924,6 +924,8 @@ function tutupHalamanLilin() {
         if (msg) {
             msg.textContent = '';
             msg.className = 'candle-message';
+            msg.style.marginTop = '';
+            msg.style.padding = '';
         }
 
         if (btn) btn.classList.remove('hidden-btn');
@@ -935,7 +937,20 @@ function tutupHalamanLilin() {
 
         if (progressBar) progressBar.classList.remove('show-bar');
         if (progressFill) progressFill.style.width = '0%';
-        if (cakeContainer) cakeContainer.classList.remove('holding');
+        if (cakeContainer) {
+            cakeContainer.classList.remove('holding');
+            cakeContainer.style.display = '';
+        }
+
+        const envelopeWrapper = document.getElementById('envelope-wrapper');
+        const envelopeMain = document.getElementById('envelope-main');
+        if (envelopeWrapper) {
+            envelopeWrapper.classList.remove('show');
+            envelopeWrapper.classList.add('hidden');
+        }
+        if (envelopeMain) {
+            envelopeMain.classList.remove('open', 'hide-body', 'center-paper');
+        }
 
         // Reset api lilin
         flames.forEach(flame => {
@@ -1149,11 +1164,34 @@ function tampilkanTahap3() {
         buatConfetti();
 
         setTimeout(() => {
-            if (msg) {
-                msg.textContent = 'Semoga apa yang kamu doakan dan inginkan segera terlaksana yaa, Aamiin 🤍';
-                msg.className = 'candle-message show-msg final-msg';
+            const cakeContainer = document.querySelector('.cake-container');
+            const envelopeWrapper = document.getElementById('envelope-wrapper');
+            const envelopeMain = document.getElementById('envelope-main');
+            const envelopePaper = document.getElementById('envelope-paper');
+
+            if (cakeContainer) cakeContainer.style.display = 'none';
+
+            if (envelopeWrapper && envelopeMain && envelopePaper) {
+                envelopePaper.innerHTML = '<p style="font-size:1.5em;font-weight:bold;margin-bottom:15px;text-align:center;">HAPPY BIRTHDAY</p>' +
+                    '<p style="margin-bottom:15px;text-align:center;line-height:1.5;">hari ini kamu ulang tahun ya selamat bertambah usia sehat selalu, panjang umur makin sabar lagi ya hehe doa terbaik untukmu semoga di umur sekarang semesta berpihak ya sama kamu semoga bisa dapetin hal yang selama ini di perjuangin, semoga bahagia dan semoga itu selamanya my best wishes for you.</p>' +
+                    '<p style="text-align:center;line-height:1.5;">aku mau ngomong ini sebenarnya dari lama tapi aku baru berani bilang nya hari ini pas dihari ulang tahunmu aku mau bilang SEBENTAR AKU SUKA SAMA KAMU, kamuu mau gk jadi pacarku?🤍🥰</p>';
+
+                envelopeWrapper.classList.remove('hidden');
+                // Trigger reflow
+                void envelopeWrapper.offsetWidth;
+                envelopeWrapper.classList.add('show');
+
+                // Animate opening after a short delay
+                setTimeout(() => {
+                    envelopeMain.classList.add('open');
+
+                    // After paper slides out, hide the envelope body and center paper
+                    setTimeout(() => {
+                        envelopeMain.classList.add('hide-body', 'center-paper');
+                    }, 2000);
+                }, 1000);
             }
-        }, 600);
+        }, 6000);
     }, flames.length * 400 + 500);
 
     // Hapus event listeners karena sudah selesai
