@@ -944,6 +944,7 @@ function tutupHalamanLilin() {
 
         const envelopeWrapper = document.getElementById('envelope-wrapper');
         const envelopeMain = document.getElementById('envelope-main');
+        const envelopePaper = document.getElementById('envelope-paper');
         if (envelopeWrapper) {
             envelopeWrapper.classList.remove('show');
             envelopeWrapper.classList.add('hidden');
@@ -951,6 +952,10 @@ function tutupHalamanLilin() {
         if (envelopeMain) {
             envelopeMain.classList.remove('open', 'hide-body', 'center-paper');
         }
+        if (envelopePaper) {
+            envelopePaper.innerHTML = '';
+        }
+        window.cancelTyping = true;
 
         // Reset api lilin
         flames.forEach(flame => {
@@ -1172,22 +1177,57 @@ function tampilkanTahap3() {
             if (cakeContainer) cakeContainer.style.display = 'none';
 
             if (envelopeWrapper && envelopeMain && envelopePaper) {
-                envelopePaper.innerHTML = '<p style="font-size:1.5em;font-weight:bold;margin-bottom:15px;text-align:center;">HAPPY BIRTHDAY</p>' +
-                    '<p style="margin-bottom:15px;text-align:center;line-height:1.5;">hari ini kamu ulang tahun ya selamat bertambah usia sehat selalu, panjang umur makin sabar lagi ya hehe doa terbaik untukmu semoga di umur sekarang semesta berpihak ya sama kamu semoga bisa dapetin hal yang selama ini di perjuangin, semoga bahagia dan semoga itu selamanya my best wishes for you.</p>' +
-                    '<p style="text-align:center;line-height:1.5;">aku mau ngomong ini sebenarnya dari lama tapi aku baru berani bilang nya hari ini pas dihari ulang tahunmu aku mau bilang SEBENARNYA AKU SUKA SAMA KAMU, kamuu mau gk jadi pacarku?🤍🥰</p>';
+                // Initialize empty paragraphs for typing animation
+                envelopePaper.innerHTML = '<p id="env-p1" style="font-size:1.5em;font-weight:bold;margin-bottom:15px;text-align:center;min-height:1.5em;"></p>' +
+                    '<p id="env-p2" style="margin-bottom:15px;text-align:center;line-height:1.5;min-height:1.5em;"></p>' +
+                    '<p id="env-p3" style="text-align:center;line-height:1.5;min-height:1.5em;"></p>';
 
                 envelopeWrapper.classList.remove('hidden');
                 // Trigger reflow
                 void envelopeWrapper.offsetWidth;
                 envelopeWrapper.classList.add('show');
+                window.cancelTyping = false;
 
                 // Animate opening after a short delay
                 setTimeout(() => {
+                    if (window.cancelTyping) return;
                     envelopeMain.classList.add('open');
 
                     // After paper slides out, hide the envelope body and center paper
                     setTimeout(() => {
+                        if (window.cancelTyping) return;
                         envelopeMain.classList.add('hide-body', 'center-paper');
+
+                        // Wait for centering animation to finish (approx 1.2s), then start typing
+                        setTimeout(() => {
+                            if (window.cancelTyping) return;
+                            const p1Chars = Array.from("HAPPY BIRTHDAY");
+                            const p2Chars = Array.from("hari ini kamu ulang tahun ya selamat bertambah usia sehat selalu, panjang umur makin sabar lagi ya hehe doa terbaik untukmu semoga di umur sekarang semesta berpihak ya sama kamu semoga bisa dapetin hal yang selama ini di perjuangin, semoga bahagia dan semoga itu selamanya my best wishes for you.");
+                            const p3Chars = Array.from("aku mau ngomong ini sebenarnya dari lama tapi aku baru berani bilang nya hari ini pas dihari ulang tahunmu aku mau bilang SEBENARNYA AKU SUKA SAMA KAMU, kamuu mau gk jadi pacarku?🤍🥰");
+
+                            function typeArray(id, chars, idx, speed, cb) {
+                                if (window.cancelTyping) return;
+                                const el = document.getElementById(id);
+                                if (!el) return;
+                                if (idx < chars.length) {
+                                    el.innerHTML += chars[idx];
+                                    if (envelopePaper) envelopePaper.scrollTop = envelopePaper.scrollHeight; // Auto-scroll while typing
+                                    setTimeout(() => typeArray(id, chars, idx + 1, speed, cb), speed);
+                                } else {
+                                    if (cb) cb();
+                                }
+                            }
+
+                            typeArray('env-p1', p1Chars, 0, 70, () => {
+                                setTimeout(() => {
+                                    typeArray('env-p2', p2Chars, 0, 40, () => {
+                                        setTimeout(() => {
+                                            typeArray('env-p3', p3Chars, 0, 50, null);
+                                        }, 400);
+                                    });
+                                }, 400);
+                            });
+                        }, 1200);
                     }, 2000);
                 }, 1000);
             }
